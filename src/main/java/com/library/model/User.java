@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import javax.persistence.*;              // javax → jakarta in Boot 3
+import javax.validation.constraints.*;  // javax → jakarta in Boot 3
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;

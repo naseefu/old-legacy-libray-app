@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;  // Changed in Hibernate 6
 
-import jakarta.persistence.*;
+import javax.persistence.*;  // javax → jakarta in Boot 3
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
