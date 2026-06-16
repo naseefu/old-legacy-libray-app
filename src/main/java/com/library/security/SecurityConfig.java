@@ -69,24 +69,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {  // ← REMOV
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-            .csrf().disable()
-            .exceptionHandling()
-                .authenticationEntryPoint(jwtAuthEntryPoint)
-            .and()
-            .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            .and()
-            .authorizeRequests()                                      // authorizeRequests() → authorizeHttpRequests()
-                .antMatchers("/api/auth/**").permitAll()              // antMatchers() removed in Spring 6
-                .antMatchers(HttpMethod.GET, "/api/books/**").permitAll()
-                .antMatchers("/api/admin/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
-            .and()
-            .headers()
-                .frameOptions().disable();                            // Old H2 console fix
-
-        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
     @Bean

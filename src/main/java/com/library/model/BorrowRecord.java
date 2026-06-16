@@ -37,9 +37,6 @@ public class BorrowRecord {
     @Column(name = "return_date")
     private LocalDate returnDate;
 
-    // Old Hibernate @Type — BREAKS in Hibernate 6
-    // Must use @Convert(converter = YesNoConverter.class) instead
-    @Type(type = "yes_no")  // ← COMPILE ERROR in Hibernate 6+
     @Column(name = "is_returned")
     private Boolean returned = false;
 

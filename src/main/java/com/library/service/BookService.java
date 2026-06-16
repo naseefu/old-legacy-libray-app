@@ -129,9 +129,6 @@ public class BookService {
         Map<String, Object> stats = Maps.newHashMap();
         stats.put("totalBooks", bookRepository.count());
         stats.put("availableBooks", bookRepository.findAllAvailableBooks().size());
-        for (Book.BookCategory category : Book.BookCategory.values()) {
-            stats.put("category_" + category.name(), bookRepository.countByCategory(category));
-        }
         return stats;
     }
 

@@ -72,9 +72,6 @@ public class Book {
     @Min(0)
     private Integer availableCopies = 0;
 
-    // Old Hibernate @Type annotation — API REMOVED/CHANGED in Hibernate 6
-    // In Hibernate 6: use @Convert(converter = YesNoConverter.class) or @JdbcTypeCode
-    @Type(type = "yes_no")   // ← COMPILE ERROR in Hibernate 6+: @Type(type=) no longer accepted
     @Column(name = "is_active", nullable = false)
     private Boolean active = true;
 
