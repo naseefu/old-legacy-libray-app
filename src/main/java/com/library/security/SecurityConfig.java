@@ -30,8 +30,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  */
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)  // Deprecated: use @EnableMethodSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {  // ← REMOVED in Spring Security 6
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
@@ -44,32 +44,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {  // ← REMOV
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // This override approach is removed — must use AuthenticationManagerBuilder differently
         auth.userDetailsService(userDetailsService)
             .passwordEncoder(passwordEncoder());
     }
 
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        // authenticationManagerBean() removed from WebSecurityConfigurerAdapter in Spring 6
-        return super.authenticationManagerBean();
-    }
-
-    @Override
-    public void configure(WebSecurity web) {
-        // WebSecurity.ignoring() is deprecated — use requestMatchers in HttpSecurity
-        web.ignoring()
-           .antMatchers("/h2-console/**")           // antMatchers() removed in Spring 6
-           .antMatchers("/swagger-ui.html")
-           .antMatchers("/swagger-resources/**")
-           .antMatchers("/v2/api-docs")
-           .antMatchers("/webjars/**");
-    }
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
