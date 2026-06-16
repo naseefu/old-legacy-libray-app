@@ -10,8 +10,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import javax.persistence.*;              // javax.persistence.* → jakarta.persistence.* in Spring Boot 3
+import javax.validation.constraints.*;  // javax.validation.* → jakarta.validation.* in Spring Boot 3
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
