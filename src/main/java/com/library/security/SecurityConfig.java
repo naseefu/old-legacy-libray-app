@@ -17,17 +17,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-/**
- * Security Configuration
- *
- * BREAKS on Spring Security 5.7+ / Spring Boot 3.x:
- * - WebSecurityConfigurerAdapter is REMOVED — must use SecurityFilterChain bean
- * - configure(HttpSecurity) → SecurityFilterChain @Bean
- * - configure(WebSecurity) → WebSecurityCustomizer @Bean
- * - configure(AuthenticationManagerBuilder) → different approach
- * - @EnableGlobalMethodSecurity(prePostEnabled=true) → @EnableMethodSecurity
- * - authenticationManagerBean() → inject AuthenticationManager differently
- */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
@@ -41,12 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService)
-            .passwordEncoder(passwordEncoder());
-    }
 
 
     @Bean
