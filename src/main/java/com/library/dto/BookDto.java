@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.*;  // javax → jakarta in Boot 3
+import jakarta.validation.constraints.*;
 import java.time.LocalDateTime;
 
 @Data

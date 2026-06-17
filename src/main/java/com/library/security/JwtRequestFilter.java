@@ -13,8 +13,8 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import com.library.service.UserDetailsServiceImpl;
 
 import io.jsonwebtoken.ExpiredJwtException;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
 
 /**
  * JWT Request Filter

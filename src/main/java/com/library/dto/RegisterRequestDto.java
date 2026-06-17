@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.*;  // javax → jakarta in Boot 3
+import jakarta.validation.constraints.*;
 
 @Data @NoArgsConstructor @AllArgsConstructor
 public class RegisterRequestDto {

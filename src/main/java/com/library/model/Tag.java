@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;  // javax → jakarta in Boot 3
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tags")
